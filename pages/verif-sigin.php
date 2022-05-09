@@ -1,6 +1,8 @@
 <?php
 
-require_once ("debug.php");
+require_once ("head.php");
+require_once ("../fonctions/debug.php");
+require_once ("../fonctions/connection.php");
 // si les champs du formulaire ne sont pas vides
 if (!empty ($_POST ["email"]) && !empty ($_POST ["password"])) {
     
@@ -9,9 +11,8 @@ if (!empty ($_POST ["email"]) && !empty ($_POST ["password"])) {
     $password = $_POST ["password"];
     
     // lance une requete SQL pour email=email dans la base utilisateur
-    $connection = new PDO ("mysql:host=localhost;dbname=tp_crud","root","");
     $sql = "SELECT password, prenom, id_role FROM `utilisateur` WHERE email = '$email';";
-    $stmt = $connection -> prepare ($sql);
+    $stmt = connection () -> prepare ($sql);
     $stmt -> execute();
     $id_connection = $stmt -> fetch (PDO::FETCH_ASSOC) ;
  
@@ -27,16 +28,17 @@ if (!empty ($_POST ["email"]) && !empty ($_POST ["password"])) {
             header ('Location: ../index1.php');
             
         } else {
-            echo "mdp non reconnu";
+            echo "<div class=\"err\">mdp non reconnu</div>";
         }
     } else {
-        echo "email non reconnu";
+        echo "<div class=\"err\">email non reconnu</div>";
     }
 
 } else {
-    echo "veuillez renseigner votre email et mdp";
+    echo "<div class=\"err\">Veuillez renseigner votre email et mdp</div>";
 }
 
-
-
 ?>
+
+</body>
+</html>

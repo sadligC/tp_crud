@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site CRUD</title>
-    <link rel="stylesheet" href="../style.css">
-</head>
+<?php
+require_once("head.php");
+?>
 
 <body>
 
 <div class="connection">
-    <form  action="../fonctions/verif-sigin.php" method="POST">
+    <form  action="verif-sigin.php" method="POST">
     
-        <legend>MON ESPACE</legend>
+        <legend>MON COMPTE</legend>
         <div>
             <label for="email">email</label>
             <input type="email" name="email">
