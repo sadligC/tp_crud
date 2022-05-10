@@ -1,10 +1,16 @@
-<?php
-require_once("head.php");
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site CRUD</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
 
 <body>
 
-<div class="connection">
+<div class="formulaire">
     <form  action="verif-sigin.php" method="POST">
     
         <legend>MON COMPTE</legend>
@@ -19,7 +25,7 @@ require_once("head.php");
         <div>
             <input class="btn" type="submit" value="Se connecter">
             <a href="signup.php">
-                <input class="btn" id="signup" type="button" value="Créer un compte">   
+                <input class="btn bleu" id="signup" type="button" value="Créer un compte">   
             </a>
         </div>
         

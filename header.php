@@ -1,6 +1,9 @@
-
-
-<?php session_start (); ?>
+<?php 
+session_start ();
+require_once ("fonctions/connection.php");
+$sql = "SELECT famille FROM famille";
+$familles = requete ($sql);
+?>
     
 <header>
 
@@ -8,31 +11,33 @@
 
     <menu>
         <ul>
-            <li><a href="pages/produits1.php">produit</a></li>
-             <li><a href="pages/produits2.php">produit</a></li>
-            <?php if (isset($_SESSION["role"]) && $_SESSION["role"] == 1) {
-             echo "<li><a href=\"pages/edition.php\">modifier</a></li>";
-                } ?>
+            <!-- création d'un menu avec les différentes familles de produits -->
+            <?php 
+            foreach ($familles as  $val) { ?>
+                <li><a href="http://localhost/afpa_dwwm/back_end_01/php_sql/tp_crud/index1.php?fam=<?php echo $val ["famille"] ?>"><?php echo $val ["famille"] ?></a></li>
+                <?php
+            } 
+            // création d'un lien accessible uniquement aux admin pour la modification des produits
+            if (isset($_SESSION["role"]) && $_SESSION["role"] == 1) { ?>
+                <li><a href="http://localhost/afpa_dwwm/back_end_01/php_sql/tp_crud/pages/edition.php">modifier</a></li><?php
+            } ?>
+
         </ul>
     </menu>
 
     <div id="connection">
+        <!-- création dun bouton login/logout -->
     <?php  
+        // si la session est ouverte
         if (isset ($_SESSION["role"])) {  ?> 
-
+        <!-- affichage du prénom de l'utlisateur et le boutton logout -->
         <div><?php echo $_SESSION ["prenom"] ?></div>
-        <div class ="btn" id="signout"><a href="fonctions/signout.php">Me déconnecter</a></div><?php
-
+        <div class ="btn bleu" id="signout"><a href="http://localhost/afpa_dwwm/back_end_01/php_sql/tp_crud/fonctions/signout.php">Me déconnecter</a></div><?php
+        // sinon, affichage du boutton login
         }  else { ?>
-
         <div class ="btn" id="signin"><a href="pages/signin.php">Me connecter</a></div><?php   
-
         }  ?>
 
     </div> 
 
 </header> 
-            
-        
-    
-    

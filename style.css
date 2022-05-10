@@ -6,6 +6,8 @@
 }
 ul {
     list-style: none;
+    display: flex;
+    justify-content:space-between;
 }
 a, li {
     text-decoration: none;
@@ -20,12 +22,8 @@ header, header div {
     padding: 15px;
 }
 menu {
-    min-width: 200px;
+    min-width: 300px;
     margin: 0 50px;
-}
-ul {
-    display: flex;
-    justify-content:space-between;
 }
 .btn {
     padding: 5px;
@@ -33,25 +31,21 @@ ul {
     margin-left: 15px;
     background-color: white;
 }
-.btn a {
-    color: rgb(185, 187, 187);
-}
-.connection {
+.formulaire {
     max-width: 300px;
-    h
     border-radius: 5px;
     padding: 45px;
     margin: 100px auto;
     border: 1px solid black;
     display: flex;
 }
-.connection div {
+.formulaire div {
     margin: 15px 0;
     padding: 10px;
     display: flex;
     justify-content: space-between;
 }
-.connection .btn {
+.btn {
     margin: 5px;
     width: 120px;
     height: 55px;
@@ -61,7 +55,7 @@ ul {
     background-color: green;
     color: white;
 } 
-#signup {
+.bleu {
     background-color: blue;
 }
 .err {
@@ -72,4 +66,27 @@ ul {
     color: red;
     margin: 100px auto;
     text-align: center;
+}
+td {
+    padding: 0 10px;
+}
+table, .edition {
+    margin: 10px 0 0 30px;
+}
+thead {
+    font-weight: bold;
+}
+.prods {
+    min-width: 600px;
+    max-width: fit-content;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.fiche {
+    width: 250px;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 50px;
 }

@@ -7,3 +7,11 @@
     <title>Site CRUD</title>
     <link rel="stylesheet" href="../style.css">
 </head>
+
+
+<body>
+    <div class="err">
+        <span>Vous n'avez pas les droits pour accéder à cette page</span>
+    </div>
+</body>
+

@@ -1,16 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site CRUD</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
 <?php
-    require_once ("head.php");
     require_once ("../fonctions/debug.php");
     require_once ("../fonctions/connection.php");
 
     $sql = "SELECT id FROM bureau ;";
-    $stmt = connection () -> prepare ($sql);
-    $stmt -> execute ();
-    $bureaux = $stmt -> fetchall (PDO::FETCH_ASSOC);
+    $bureaux = requete($sql);
 ?>
 
 <body>
-<div class="connection">
+<div class="formulaire">
     <form action="../fonctions/nouveau-utilisateur.php" method="POST">
             
         <legend>CREER MON COMPTE</legend>
