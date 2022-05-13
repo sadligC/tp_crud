@@ -19,7 +19,7 @@ if (!empty ($_POST ["email"]) && !empty ($_POST ["password"])) {
     $password = $_POST ["password"];
     
     // lance une requete SQL pour email=email dans la base utilisateur
-    $sql = "SELECT password, prenom, id_role FROM `utilisateur` WHERE email = '$email';";
+    $sql = "SELECT id, password, prenom, id_role FROM `utilisateur` WHERE email = '$email';";
     $stmt = connection () -> prepare ($sql);
     $stmt -> execute();
     $id_connection = $stmt -> fetch (PDO::FETCH_ASSOC) ;
@@ -27,12 +27,16 @@ if (!empty ($_POST ["email"]) && !empty ($_POST ["password"])) {
     
     // si la requete a aboutit
     if ($id_connection) {
-        
-        if ($id_connection ["password"] === $password){ // compare le mot de passe saisi et le mdp de la base
+        $verify = password_verify ($password, $id_connection ["password"]);
+        var_dump ($verify);
+        var_dump ($id_connection ["password"]);
+        var_dump ($password);
+        if ($id_connection ["password"] === $password || $verify){ // compare le mot de passe saisi et le mdp de la base
             
             session_start ();
             $_SESSION ["role"] = $id_connection["id_role"]; //si ça marche, enregistre les infos dans une session
             $_SESSION ["prenom"] = $id_connection["prenom"];
+            $_SESSION ["utilisateur_id"] = $id_connection["id"];
             header ('Location: ../index1.php');
             
         } else {

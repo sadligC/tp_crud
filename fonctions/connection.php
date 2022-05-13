@@ -7,7 +7,7 @@ function connection () {
 function requete ($req){
    $stmt = connection () -> prepare ($req);
    $stmt -> execute ();
-   return $resultat = $stmt -> fetchall (PDO::FETCH_ASSOC);
+   return $stmt -> fetchall (PDO::FETCH_ASSOC);
 }
 
 ?>

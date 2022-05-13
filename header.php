@@ -32,10 +32,10 @@ $familles = requete ($sql);
         if (isset ($_SESSION["role"])) {  ?> 
         <!-- affichage du prénom de l'utlisateur et le boutton logout -->
         <div><?php echo $_SESSION ["prenom"] ?></div>
-        <div class ="btn bleu" id="signout"><a href="http://localhost/afpa_dwwm/back_end_01/php_sql/tp_crud/fonctions/signout.php">Me déconnecter</a></div><?php
+        <a href="http://localhost/afpa_dwwm/back_end_01/php_sql/tp_crud/fonctions/signout.php"><input type="button" class="btn bleu" value="Me déconnecter"></a><?php
         // sinon, affichage du boutton login
         }  else { ?>
-        <div class ="btn" id="signin"><a href="pages/signin.php">Me connecter</a></div><?php   
+        <a href="pages/signin.php"><input type="button" class="btn" value="Me connecter"></a><?php   
         }  ?>
 
     </div> 
